@@ -1,0 +1,12 @@
+services:
+  minha-aplicacao:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:80"  # Mapeia a porta 80 do contêiner para a 5000 no host
+      - "5001:443" # Mapeia a porta 443 do contêiner para a 5001 no host
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    volumes:
+      - .:/src  # Mapeia o código fonte da máquina local para o contêiner
